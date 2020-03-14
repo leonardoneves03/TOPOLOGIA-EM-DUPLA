@@ -1,0 +1,17 @@
+SW-01
+
+HOSTNAME( SW-01 )
+BANNER ( APENAS PESSOAS AUTORIZADAS PODEM USAR ESSE DISPOSITIVO )
+COLOCAR SENHA NA ENABLE ( lucasleonardo*Enable )
+COLOCAR SENHA NO CONSOLE ( lucasleonardo*Console)
+COLOCAR SENHA NO VTY ( lucasleonardo*VTY )
+CHAVE DE CRPTOGRAFIA ( crytpto key generate rsa general-key modulos 1024 )
+DOMINIO ( ip domain-name 1rede.local)
+CRIAR USUARIO (USERNAME *nome PRIVILEGED 15 SECRET *senha)
+ATIVAR LOGIN LOCAL NA CONSOLE (login local)
+ENCRIPTAR AS SENHA ( service password-encryption )
+IP VLAN 1
+       IP: 192.168.0.254
+       MASCARA: 255.255.255.0
+       ATIVAR A INTERFACE (no shutdown)
+INSERIR O GATEWAY  ( ip default-gateway 192.168.0.1)

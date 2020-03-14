@@ -1,0 +1,34 @@
+enable
+config t
+hostname RT-01
+banner motd "ACESSO APENAS PARA PESSOAS AUTORIZADAS!"
+enable secret lucascaique*enable
+line console 0
+password lucascaique*console
+login
+exit
+interface g0/0 
+ip address 192.168.0.1 255.255.255.0
+no shutdown
+exit
+interface g0/1
+ip address 172.16.0.1 255.255.0.0
+no shutdown
+exit
+line vty 0 15
+password lucascaique*vty
+login
+transport input ssh 
+exit
+service password-encryption
+ip domain-name 1rede.local
+crypto key generate rsa general-keys modulus 1024
+username lucascaique privilege 15 secret 123
+line console 0
+login local
+exit
+line vty 0 15
+login local
+end
+wr
+
